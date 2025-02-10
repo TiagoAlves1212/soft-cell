@@ -31,7 +31,7 @@
             const inputCliente = parseFloat(document.querySelector("#venda").value);
             const inputFornecedor = parseFloat(document.querySelector("#valor").value);
             if (!isNaN(inputCliente) && !isNaN(inputFornecedor)) {
-                document.querySelector("#lucro").value = (inputCliente - inputFornecedor).toFixed(2);
+                document.querySelector("#lucro").value = (inputCliente - inputFornecedor);
             } else {
                 document.querySelector("#lucro").value = 'Valor inválido';
             }
