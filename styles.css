@@ -110,3 +110,11 @@ button {
 button:hover {
     background-color: rgba(5, 108, 204, 0.788);
 }
+
+.lucro {
+    width: 100%;
+    background-color: transparent;
+    gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
