@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    font-weight: bold;
 }
 
 body {
@@ -87,7 +88,7 @@ input:hover {
     backdrop-filter: blur( 15.5px );
     -webkit-backdrop-filter: blur( 15.5px );
     border-radius: 10px;
-    color: rgb(9, 133, 248);
+    color: #fff;
 }
 
 textarea:hover {
