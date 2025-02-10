@@ -5,19 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
+    <script src="lucro.js"></script>
     <title>Soft Cell</title>
 </head>
 <body>
     <form method="post" name="form-product">
         <div class="inputs">
             <input name="PRODUTO" type="text" placeholder="Digite o nome do produto">
-            <input name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente">
-            <input name="VALOR" type="number" placeholder="Digite o valor nos fornecedores">
-            <span id="LUCRO"></span>
+            <input id="venda" name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente">
+            <input id="valor" name="VALOR" type="number" placeholder="Digite o valor nos fornecedores">
+            <div class="lucro">
+                <input name="LUCRO" id="lucro" type="number" placeholder="lucro">
+                <!-- Remover o atributo onclick e usar o evento no script -->
+                <button type="button" id="calcularBtn">Calcular</button>
+            </div>
             <input name="DATA" type="date">
             <textarea name="OBS" id=""></textarea>
         </div>
         <button>Enviar</button>
     </form>
+
+    <script>
+        // Função para calcular o lucro
+        function calcularLucro () {
+            const inputCliente = parseFloat(document.querySelector("#venda").value);
+            const inputFornecedor = parseFloat(document.querySelector("#valor").value);
+            if (!isNaN(inputCliente) && !isNaN(inputFornecedor)) {
+                document.querySelector("#lucro").value = (inputCliente - inputFornecedor).toFixed(2);
+            } else {
+                document.querySelector("#lucro").value = 'Valor inválido';
+            }
+        }
+
+        // Adiciona o evento de clique no botão de calcular
+        document.querySelector("#calcularBtn").addEventListener("click", function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            calcularLucro(); // Chama a função de cálculo
+        });
+    </script>
 </body>
 </html>
