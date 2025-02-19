@@ -10,9 +10,21 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
+  // Cria um novo objeto FormData
+  const formData = new FormData(form);
+
+  // Converte valores numéricos com ponto para vírgula
+  formData.forEach((value, key) => {
+    // Verifica se o valor é um número
+    if (!isNaN(value)) {
+      // Substitui ponto por vírgula
+      formData.set(key, value.replace('.', ','));
+    }
+  });
+
   fetch(script_do_google, {
     method: "POST",
-    body: new FormData(form),
+    body: formData,
     mode: "no-cors",
   })
     .then((response) => {
