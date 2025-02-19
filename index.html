@@ -12,10 +12,10 @@
     <form method="post" name="form-product">
         <div class="inputs">
             <input name="PRODUTO" type="text" placeholder="Digite o nome do produto" required>
-            <input id="venda" name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente" required>
-            <input id="valor" name="VALOR" type="number" placeholder="Digite o valor nos fornecedores" required>
+            <input id="venda" name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente" required step="any">
+            <input id="valor" name="VALOR" type="number" placeholder="Digite o valor nos fornecedores" required step="any">
             <div class="lucro">
-                <input name="LUCRO" id="lucro" type="number" placeholder="lucro">
+                <input name="LUCRO" id="lucro" type="number" placeholder="lucro" readonly>
                 <!-- Remover o atributo onclick e usar o evento no script -->
                 <button type="button" id="calcularBtn">Calcular</button>
             </div>
@@ -27,12 +27,17 @@
 
     <script>
         // Função para calcular o lucro
-        function calcularLucro () {
+        function calcularLucro() {
             const inputCliente = parseFloat(document.querySelector("#venda").value);
             const inputFornecedor = parseFloat(document.querySelector("#valor").value);
+            
+            // Verificar se os valores são números válidos
             if (!isNaN(inputCliente) && !isNaN(inputFornecedor)) {
-                document.querySelector("#lucro").value = (inputCliente - inputFornecedor);
+                // Calcular o lucro
+                const lucro = inputCliente - inputFornecedor;
+                document.querySelector("#lucro").value = lucro.toFixed(2); // Arredondar para 2 casas decimais
             } else {
+                // Caso os valores sejam inválidos
                 document.querySelector("#lucro").value = 'Valor inválido';
             }
         }
