@@ -1,5 +1,5 @@
 const script_do_google =
-  "https://script.google.com/macros/s/AKfycbwSEQh-Da5JnzYM9PC0ye5OyEbW9xktsIzKlXKOlvRUqDDBpV9wB0RN75J8lJXAUlsm/exec";
+  "https://script.google.com/macros/s/AKfycbzedsZjBBMIh2GGXtocaVloJFVR-SYBi43d_Je1MROGxv34sz98YuDlg67Mg1VIktIi/exec";
 const form = document.forms["form-product"];
 
 form.addEventListener("submit", (e) => {
