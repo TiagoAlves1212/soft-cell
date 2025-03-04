@@ -63,7 +63,8 @@ form.addEventListener("submit", (e) => {
 
   fetch(script_do_google, {
     method: "POST",
-    body: new URLSearchParams(formData), // Envia no formato correto
+    body: new URLSearchParams(formData),
+    mode: "no-cors", // Envia no formato correto
   })
     .then((response) => response.json()) // Agora conseguimos ler a resposta
     .then((data) => {
