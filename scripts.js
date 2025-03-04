@@ -5,7 +5,7 @@ const dados_do_formulario = document.forms['form-product'];
 dados_do_formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    fetch(script_do_google, { method: 'POST', body: new FormData(dados_do_formulario) })
+    fetch(script_do_google, { method: 'POST', mode: 'no-cors', body: new FormData(dados_do_formulario) })
         .then(response => {
             // Se os dados forem gravados corretamente, será enviada uma mensagem de sucesso
             alert('Dados enviados com sucesso!', response);
