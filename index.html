@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
+    <script src="lucro.js"></script>
     <title>Soft Cell</title>
 </head>
 <body>
     <form method="post" name="form-product">
         <div class="inputs">
-            <input name="PRODUTO" type="text" placeholder="Digite o nome do produto" required>
-            <input id="venda" name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente" required step="any">
-            <input id="valor" name="VALOR" type="number" placeholder="Digite o valor nos fornecedores" required step="any">
+            <input name="PRODUTO" type="text" placeholder="Digite o nome do produto">
+            <input id="venda" name="VENDA" type="number" placeholder="Digite o valor vendido para o cliente">
+            <input id="valor" name="VALOR" type="number" placeholder="Digite o valor nos fornecedores">
             <div class="lucro">
-                <input name="LUCRO" id="lucro" type="number" placeholder="lucro" readonly>
+                <input name="LUCRO" id="lucro" type="number" placeholder="lucro">
                 <!-- Remover o atributo onclick e usar o evento no script -->
                 <button type="button" id="calcularBtn">Calcular</button>
             </div>
-            <input name="DATA" type="date" required>
+            <input name="DATA" type="date">
             <textarea name="OBS" id=""></textarea>
         </div>
         <button>Enviar</button>
@@ -26,18 +27,12 @@
 
     <script>
         // Função para calcular o lucro
-        function calcularLucro() {
+        function calcularLucro () {
             const inputCliente = parseFloat(document.querySelector("#venda").value);
             const inputFornecedor = parseFloat(document.querySelector("#valor").value);
-            
-            // Verificar se os valores são números válidos
             if (!isNaN(inputCliente) && !isNaN(inputFornecedor)) {
-                // Calcular o lucro
-                const lucro = inputCliente - inputFornecedor;
-                // Formatar o lucro com vírgula como separador decimal
-                document.querySelector("#lucro").value = lucro.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                document.querySelector("#lucro").value = (inputCliente - inputFornecedor);
             } else {
-                // Caso os valores sejam inválidos
                 document.querySelector("#lucro").value = 'Valor inválido';
             }
         }
