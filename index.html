@@ -34,7 +34,8 @@
             if (!isNaN(inputCliente) && !isNaN(inputFornecedor)) {
                 // Calcular o lucro
                 const lucro = inputCliente - inputFornecedor;
-                document.querySelector("#lucro").value = lucro.toFixed(2); // Arredondar para 2 casas decimais
+                // Formatar o lucro com vírgula como separador decimal
+                document.querySelector("#lucro").value = lucro.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             } else {
                 // Caso os valores sejam inválidos
                 document.querySelector("#lucro").value = 'Valor inválido';
